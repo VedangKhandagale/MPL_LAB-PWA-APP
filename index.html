@@ -5,6 +5,7 @@
 	<meta name="apple-mobile-web-app-status-bar" content="#aa7700">
 	<meta name="theme-color" content="black">
 	<link rel="manifest" href="manifest.json">
+	<script src="service-worker.js"></script>
 	<title>
 		Index
 	</title>
@@ -76,11 +77,11 @@
 			if ('serviceWorker' in navigator) {
 				try {
 					// Register the Service Worker named 'serviceworker.js'
-					await navigator.serviceworker.register('serviceworker.js');
+					await navigator.serviceworker.register('service-worker.js');
 				}
 				catch (e) {
 					// Log error message if registration fails
-					console.log('SW registration failed');
+					console.error('ServiceWorker registration failed: ', e);
 				}
 			}
 		}
